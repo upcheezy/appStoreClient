@@ -48,15 +48,25 @@ class App extends Component {
     });
   };
 
+  //   let filteredPrograms = null;
+  // if (genre) {
+  //   filteredPrograms = programs.filter(item => item === genre);
+  // }
+  // this.setState({
+  // programs : filteredPrograms
+  // });
+
   applyGfilter = () => {
     let { genre, programs } = this.state;
+    let genreContains
     if (genre) {
-      programs.includes(genre);
+      genreContains = programs.filter(program => program.Genres.includes(genre))
+      console.log(programs);
     }
     this.setState({
-      programs,
+      programs: genreContains,
     });
-    console.log(this.state.programs)
+    // console.log(this.state.programs)
   };
 
   handleSubmit(e) {
